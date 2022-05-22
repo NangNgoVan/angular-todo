@@ -1,0 +1,26 @@
+<li class="todo-item">
+    <div *ngIf="!editingMode; else editBlock">
+        <div class="todo-item__name">
+            <input type="checkbox" 
+            [checked]="todo.status==='COMPLETED'"
+            (change)="onCheckboxChange($event)"/>
+            <span>{{todo.name}}</span>
+        </div>
+        <div class="todo-item__btn">
+            <button (click)="editingMode = !editingMode;">Edit</button>
+            <button (click)="onDeleteTodo(todo.id)">Delete</button>
+        </div>
+    </div>
+    <ng-template #editBlock>
+        <div class="todo-item__name">
+            <input class="edit-text" value="{{todo.name}}" 
+            #editform
+            (keydown.enter)="onSaveTodoName(editform.value)"
+            >
+        </div>
+        <div class="todo-item__btn">
+            <button (click)="onSaveTodoName(editform.value)">Save</button>
+            <button (click)="onCancelEditing()">Cancel</button>
+        </div>
+    </ng-template>
+</li>

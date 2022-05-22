@@ -1,0 +1,33 @@
+.todo-item {
+    list-style: none;
+    padding: 10px 5px;
+    background-color: #fff;
+    margin: 12px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.16);
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.todo-item__name {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+}
+
+.todo-item__btn {
+    display:flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+}
+
+.todo-item__btn button {
+    padding: 5px 5px;
+    background-color: none;
+    border: none;
+    border-radius: 4px;
+    color: blue;
+}
+
+.edit-text {
+    width: 100%;
+}

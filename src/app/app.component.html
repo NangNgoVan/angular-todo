@@ -1,3 +1,28 @@
 <div class="app-todo-list">
-  <todo-list></todo-list>
+  <div>
+    <h1>Simple Todo List</h1>
+  </div>
+  <ul>
+    <li>Some features: adding, removing, editing the todo items.</li>
+    <li>Using Local storage to save the list.</li>
+  </ul>
+  <div class="todo-list">
+    <input type="text" 
+    placeholder="What do you want to do..."
+    [(ngModel)]="todoName"
+    (keydown.enter)="inputHandler($event)"/>
+  <div *ngIf="todos$.length > 0; else empty">
+    <ul>
+      <todo-list-item 
+        *ngFor="let todo of todos$" 
+        [todo]="todo">
+      </todo-list-item>
+    </ul>
+  </div>
+  <ng-template #empty>
+    <div class="todo-list">
+      <span>Nothing to do!</span>
+    </div>
+  </ng-template>
+  </div>
 </div>
